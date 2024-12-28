@@ -1,0 +1,13 @@
+.mobile-device{
+  .mobile {
+    display: block;
+  }
+  .mobile-hide {
+    display: none;
+  }
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
