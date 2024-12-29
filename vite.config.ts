@@ -98,10 +98,13 @@ export default defineConfig({
     //   },
     //   registerType: 'autoUpdate'
     // }),
-    // viteMockServe({
-    //   mockPath: 'mock',
-    //   enable: true
-    // })
+    viteMockServe({
+      mockPath: 'mock',
+      enable: true,
+      watchFiles: false,
+      ignore: /_/,
+      supportTs: true
+    })
   ],
   resolve: {
     alias: {

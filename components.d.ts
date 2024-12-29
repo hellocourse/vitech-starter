@@ -13,7 +13,6 @@ declare module 'vue' {
     Container: typeof import('./src/components/Container.vue')['default']
     DefaultFooter: typeof import('./src/components/DefaultFooter.vue')['default']
     FreeSwiper: typeof import('./src/components/FreeSwiper.vue')['default']
-    Hello: typeof import('./src/components/Hello.vue')['default']
     HelloWorld: typeof import('./src/components/HelloWorld.vue')['default']
     ImageSwiper: typeof import('./src/components/ImageSwiper.vue')['default']
     MemberBenefits: typeof import('./src/components/MemberBenefits.vue')['default']
@@ -28,6 +27,5 @@ declare module 'vue' {
     Tabs: typeof import('./src/components/Tabs.vue')['default']
     Toast: typeof import('./src/components/Toast.vue')['default']
     UserComponents: typeof import('./src/components/user/UserComponents.vue')['default']
-    UserUserComponents: typeof import('./src/components/user/UserComponents.vue')['default']
   }
 }
