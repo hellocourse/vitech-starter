@@ -1,7 +1,8 @@
 // test.ts
 
 import type { MockMethod } from 'vite-plugin-mock'
-
+import path from 'node:path'
+import fs from 'node:fs'
 export default [
   {
     url: '/api/get',
@@ -22,9 +23,8 @@ export default [
     url: '/api/post',
     method: 'post',
     timeout: 1000,
-    response: ({ body, method }) => {
+    response: ({ body }) => {
       console.log('POST 请求被调用')
-      console.log('请求方法:', method)
       console.log('请求数据:', body)
       return {
         code: 0,
@@ -35,6 +35,26 @@ export default [
         }
       }
     }
+  },
+  {
+    url: '/api/text',
+    method: 'get',
+    rawResponse: async (_req: any, res: any) => {
+      const imagePath = path.join(__dirname, 'demo.png')
+      fs.readFile(imagePath, (err, data) => {
+        if (err) {
+          res.statusCode = 500
+          res.setHeader('Content-Type', 'text/plain')
+          res.end('Error: Unable to read image file.')
+        } else {
+          res.setHeader('Content-Type', 'image/png')
+          res.statusCode = 200
+          res.end(data)
+        }
+      })
+    }
   }
 ] as MockMethod[]
+
+
 
