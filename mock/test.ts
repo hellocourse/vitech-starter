@@ -40,18 +40,19 @@ export default [
     url: '/api/text',
     method: 'get',
     rawResponse: async (_req: any, res: any) => {
-      const imagePath = path.join(__dirname, 'demo.png')
-      fs.readFile(imagePath, (err, data) => {
-        if (err) {
-          res.statusCode = 500
-          res.setHeader('Content-Type', 'text/plain')
-          res.end('Error: Unable to read image file.')
-        } else {
-          res.setHeader('Content-Type', 'image/png')
-          res.statusCode = 200
-          res.end(data)
-        }
-      })
+      try {
+        const imagePath = path.resolve(__dirname, './demo.png')
+        console.log('尝试读取图片:', imagePath)
+        const data = await fs.promises.readFile(imagePath)
+        res.setHeader('Content-Type', 'image/png')
+        res.statusCode = 200
+        res.end(data)
+      } catch (err) {
+        console.error('读取图片失败:', err)
+        res.statusCode = 500
+        res.setHeader('Content-Type', 'text/plain')
+        res.end('Error: Unable to read image file. ' + err.message)
+      }
     }
   }
 ] as MockMethod[]

@@ -78,30 +78,30 @@ export default defineConfig({
       layoutsDirs: 'src/layouts',
       defaultLayout: 'default'
     }),
-    // VitePWA({
-    //   manifest: {
-    //     name: 'Vite App',
-    //     short_name: 'Vite App',
-    //     theme_color: '#ffffff',
-    //     icons: [
-    //       {
-    //         src: '/192x192.png',
-    //         sizes: '192x192',
-    //         type: 'image/png'
-    //       },
-    //       {
-    //         src: '/512x512.png',
-    //         sizes: '512x512',
-    //         type: 'image/png'
-    //       }
-    //     ]
-    //   },
-    //   registerType: 'autoUpdate'
-    // }),
+    VitePWA({
+      manifest: {
+        name: 'Vite App',
+        short_name: 'Vite App',
+        theme_color: '#ffffff',
+        icons: [
+          {
+            src: '/192x192.png',
+            sizes: '192x192',
+            type: 'image/png'
+          },
+          {
+            src: '/512x512.png',
+            sizes: '512x512',
+            type: 'image/png'
+          }
+        ]
+      },
+      registerType: 'autoUpdate'
+    }),
     viteMockServe({
       mockPath: 'mock',
       enable: true,
-      watchFiles: true,
+      watchFiles: false,
       ignore: /_/
     })
   ],
