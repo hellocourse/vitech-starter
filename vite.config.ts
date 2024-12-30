@@ -103,7 +103,7 @@ export default defineConfig({
       enable: true,
       watchFiles: false,
       ignore: /_/
-    })
+    })  
   ],
   resolve: {
     alias: {
